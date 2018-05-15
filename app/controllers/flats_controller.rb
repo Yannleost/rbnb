@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-
+# ici on dit que la personne doit pouvoir etre authentifiée pour acceder à ces methodes.
+# sauf pour la page index qui est la page d'acceuiel
   def index
     @flats = Flat.all
   end
@@ -8,7 +9,6 @@ class FlatsController < ApplicationController
   def new
     @flat = Flat.new
   end
-
 
   def create
     @flat = Flat.new(flat_params)
@@ -40,6 +40,7 @@ class FlatsController < ApplicationController
 
 
   private
+  # protection des parametres se sont les strongs params
   def flat_params
     params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date)
   end
