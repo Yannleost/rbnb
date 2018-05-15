@@ -1,6 +1,14 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
+  def index
+    @flats = Flat.all
+  end
+
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
   def new
     @flat = Flat.new
   end
@@ -17,7 +25,7 @@ class FlatsController < ApplicationController
 
   def update
     @flat = Flat.find(params[:id])
-    @flat.update(flat_params
+    @flat.update(flat_params)
   end
 
   def destroy
