@@ -1,4 +1,26 @@
-<h1>Flats#show</h1>
-<p>Find me in app/views/flats/show.html.erb</p>
+<h1>Voici l'appartement <%=@flat.title%></h1>
+
+<h5> Ses caracterstiques sont : </h5>
+<ul>
+<li> Description :<%= @flat.description%></li>
+<li> Prix : <%= @flat.price %></li>
+<li> Capacité :<%= @flat.capacity%></li>
+<li> Date de début : <%= @flat.start_date %></li>
+<li> Date de fin : <%= @flat.end_date%></li>
+</ul>
+
+ <%= link_to("Edit information", edit_flat_path, html_options = {class: "btn btn-primary"})%>
+ <br />
+ <br />
+ <%= link_to("Delete flat", flat_path(@flat), method: :delete)%>
+<br />
+<br />
+<br />
+<a href="#"> Reservation </a>
+
+
+ <%= link_to("Back to index", flats_path)%>
+
+
 
 
