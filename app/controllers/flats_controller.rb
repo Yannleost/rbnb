@@ -5,19 +5,21 @@ class FlatsController < ApplicationController
     @flats = Flat.all
   end
 
-  def show
-    @flat = Flat.find(params[:id])
-  end
-
   def new
     @flat = Flat.new
   end
+
 
   def create
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
     @flat.save
   end
+
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
 
   def edit
     @flat = Flat.find(params[:id])
