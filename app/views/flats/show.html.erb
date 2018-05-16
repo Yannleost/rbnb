@@ -7,6 +7,7 @@
 <li> Capacité :<%= @flat.capacity%></li>
 <li> Date de début : <%= @flat.start_date %></li>
 <li> Date de fin : <%= @flat.end_date%></li>
+<li> Propriétaire : <%= @flat.owner.email%></li>
 </ul>
 
  <%= link_to("Edit information", edit_flat_path, html_options = {class: "btn btn-primary"})%>

@@ -20,8 +20,6 @@ p "seeding Database"
   user.save
 end
 
-user_admin = User.create!(email: "dsqsd@gmail.com", password: "azerty")
-user_admin.save
 
 10.times do
   flat = Flat.create!(
@@ -31,7 +29,7 @@ user_admin.save
     capacity: Faker::Number.between(1, 10),
     start_date: Faker::Date.between(Date.today, Date.today+1000),
     end_date: Faker::Date.between(Date.today, Date.today+1000),
-    owner: User.sample
+    owner: User.first
     )
 end
 
