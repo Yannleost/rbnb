@@ -1,22 +1,18 @@
 <h1> Let's create your flat ! </h1>
-
-<%= simple_form_for(@flat) do |f| %>
-  <%= f.label :title  %>
-  <%= f.text_field :title %> <br />
-  <%= f.label :address  %>
-  <%= f.text_field :address %> <br />
-  <%= f.label :description %>
-  <%= f.text_field :description %> <br />
-  <%= f.label :price %>
-  <%= f.text_field :price %> <br />
-  <%= f.label :capacity %>
-  <%= f.text_field :capacity %> <br />
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %> <br />
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %> <br />
-  <%= f.submit class: 'btn btn-primary'%>
-<% end %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= simple_form_for(@flat) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :price %>
+        <%= f.input :capacity %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</div>
 <%= link_to "Back to menu", flats_path %>
 
