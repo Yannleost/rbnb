@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'faker'
 p "destroying db ...."
 
@@ -46,6 +47,3 @@ end
 
 
 
-# 10.times do
-
-# end

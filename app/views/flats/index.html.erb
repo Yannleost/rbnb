@@ -1,8 +1,7 @@
-<h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
+<h1>Voici tous nos espaces de co-working </h1>
 
 <% @flats.each do |flat| %>
-  <%= flat.title %>
-  <%= link_to "GO", flat_path(flat.id) %>
+ <li> <%= flat.title %> <%= link_to "GO", flat_path(flat.id) %> </li>
 <%end%>
 
+ <%= link_to("CREATE NEW FLAT", new_flat_path, html_options = {class: "btn btn-danger"})%>
