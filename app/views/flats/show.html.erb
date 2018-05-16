@@ -1,8 +1,16 @@
-<h1>Voici l'appartement <%=@flat.title%></h1>
+<h1>Voici l'appartement : <b> <%=@flat.title%></b>  </h1>
+<div
+  id="map"
+  style="width: 100%;
+  height: 250px;"
+  data-markers="<%= @markers.to_json %>">
+</div>
+
 
 <h5> Ses caracterstiques sont : </h5>
 <ul>
 <li> Description :<%= @flat.description%></li>
+<li> Addresse : <%= @flat.address %>
 <li> Prix : <%= @flat.price %></li>
 <li> Capacité :<%= @flat.capacity%></li>
 <li> Date de début : <%= @flat.start_date %></li>
@@ -20,7 +28,6 @@
 
 <%= link_to("Reservation", new_flat_reservation_path(@flat))%>
 <%= link_to("Back to index", flats_path)%>
-
 
 
 

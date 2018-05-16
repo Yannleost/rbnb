@@ -11,14 +11,25 @@ class FlatsController < ApplicationController
   end
 
   def create
+    # raise
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
-    @flat.save
-    redirect_to flat_path(@flat)
+    if @flat.save
+      redirect_to flat_path(@flat)
+    else
+      render :new
+    end
   end
 
   def show
     @flat = Flat.find(params[:id])
+    # @flat = Flat.where.not(latitude: nil, longitude: nil)
+    if @flat.latitude
+      @markers = [{
+        lat: @flat.latitude,
+        lng: @flat.longitude
+        }]
+    end
   end
 
 
@@ -27,9 +38,13 @@ class FlatsController < ApplicationController
   end
 
   def update
+
     @flat = Flat.find(params[:id])
-    @flat.update(flat_params)
-    redirect_to flat_path
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,7 +57,7 @@ class FlatsController < ApplicationController
   private
   # protection des parametres se sont les strongs params
   def flat_params
-    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date)
+    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date, :address)
   end
 
 end
