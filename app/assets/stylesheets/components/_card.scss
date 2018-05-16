@@ -1,10 +1,12 @@
 .card {
+  border-radius:3px;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  margin: 20px;
 }
 .card-user {
   position: absolute;
@@ -45,4 +47,8 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+p{
+  margin:5px;
+  font-size:25px;
 }
