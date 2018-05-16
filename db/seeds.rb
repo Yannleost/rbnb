@@ -5,19 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'pry-byebug'
 require 'faker'
 p "destroying db ...."
+Flat.all.destroy_all
+User.all.destroy_all
 
 
 p "seeding Database"
 
 10.times do
-  user = User.new(
-    email: Faker::SiliconValley.company ,
-    password: Faker::SiliconValley.company ,
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.email ,
     )
-  user.save
 end
 
 
@@ -29,7 +30,7 @@ end
     capacity: Faker::Number.between(1, 10),
     start_date: Faker::Date.between(Date.today, Date.today+1000),
     end_date: Faker::Date.between(Date.today, Date.today+1000),
-    owner: User.first
+    owner: User.all.sample
     )
 end
 

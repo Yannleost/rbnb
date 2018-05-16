@@ -1,6 +1,6 @@
 class Flat < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   validates :title, presence: true
   validates :title, length: {minimum: 2, maximum: 120}, allow_blank: true
   validates :description, presence: true
