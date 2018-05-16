@@ -9,19 +9,18 @@
 require 'faker'
 p "destroying db ...."
 
-User.delete_all
 
 p "seeding Database"
 
 10.times do
   user = User.new(
-    email: Faker::Internet.email ,
+    email: Faker::SiliconValley.company ,
     password: Faker::SiliconValley.company ,
     )
   user.save
 end
 
-user_admin = User.create!(email: "yannleost@gmail.com", password: "azerty")
+user_admin = User.create!(email: "dsqsd@gmail.com", password: "azerty")
 user_admin.save
 
 10.times do
@@ -31,18 +30,19 @@ user_admin.save
     price: Faker::Number.between(10, 400),
     capacity: Faker::Number.between(1, 10),
     start_date: Faker::Date.between(Date.today, Date.today+1000),
-    end_date: Faker::Date.between(Date.today, Date.today+1000)
+    end_date: Faker::Date.between(Date.today, Date.today+1000),
+    owner: User.sample
     )
 end
 
 
-10.times do
-  resa = Reservation.create!(
-     start_date: Faker::Date.between(Date.today, Date.today+1000),
-     end_date: Faker::Date.between(Date.today, Date.today+1000)
-    )
-  resa.save
-  end
+# 10.times do
+#   resa = Reservation.create!(
+#      start_date: Faker::Date.between(Date.today, Date.today+1000),
+#      end_date: Faker::Date.between(Date.today, Date.today+1000)
+#     )
+#   resa.save
+#   end
 
 
 
