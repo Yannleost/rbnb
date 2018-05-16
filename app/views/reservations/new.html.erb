@@ -2,7 +2,7 @@
 
 <h1> Let's create your reservation </h1>
 
-<%= simple_form_for(@reservation) do |f| %>
+<%= simple_form_for [@flat, @reservation] do |f| %>
 
   <%= f.label :start_date %>
   <%= f.text_field :start_date %> <br />
@@ -11,5 +11,5 @@
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
 
-<%= link_to "yes", flats_path %>
+<%= link_to "index", flats_path %>
 
