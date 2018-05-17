@@ -14,7 +14,45 @@
 @import "components/index";
 @import "pages/index";
 
+ // pages new
  #titreform{
   text-align:center;
   color:blue;
  }
+ .backform{
+  text-align:right;
+ }
+button.btn-outline-primary{
+  display: inline;
+  text-align:center;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  color: rgb(255, 0, 0);
+}
+// page show
+ .container2{
+height: 15vh;
+}
+//   height: 10vh;
+.marginh5 {
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+// }
+//  h5 {
+// margin-top: 20px;
+// padding-bottom: 20px;
+// color: red;
+// border: red;
+// }
+
+.container1 h1{
+margin-top : 30px;
+margin-bottom: 30px;
+}
+
+.container1 h5{
+margin-top : 30px;
+margin-bottom: 30px;
+}
