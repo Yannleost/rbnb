@@ -16,6 +16,8 @@
 <li> Date de début : <%= @flat.start_date %></li>
 <li> Date de fin : <%= @flat.end_date%></li>
 <li> Propriétaire : <%= @flat.owner.email%></li>
+<%= cl_image_tag(@flat.photo,
+      width: 400, height: 300, crop: :fill) %>
 </ul>
 
  <%= link_to("Edit information", edit_flat_path, html_options = {class: "btn btn-primary"})%>

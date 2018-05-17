@@ -57,7 +57,7 @@ class FlatsController < ApplicationController
   private
   # protection des parametres se sont les strongs params
   def flat_params
-    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date, :address)
+    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date, :address, :photo)
   end
 
 end
