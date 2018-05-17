@@ -6,10 +6,12 @@ class ReservationsController < ApplicationController
  def new
    @flat = Flat.find(params[:flat_id])
    @reservation = Reservation.new
+   authorize @reservation
  end
 # ici le user a été renommé client dans le model flat
 def create
   @reservation = Reservation.new(reservation_params)
+  authorize @reservation
   @reservation.flat = Flat.find(params[:flat_id])
   @reservation.client = current_user
   @reservation.save
@@ -18,6 +20,7 @@ end
 
 def show
   @reservation = Reservation.find(params[:id])
+  authorize @reservation
 end
 
 private
