@@ -1,27 +1,42 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
   <div class="banner-content">
+
     <h1>Bienvenue sur notre espace de co-working</h1>
     <%= link_to("CREATE NEW FLAT", new_flat_path, html_options = {class:"btn btn-primary"}) %>
  </div>
 </div>
+
 <div class="container">
 <h1 class="card-headtitle">Voici tous nos espaces de Co-working </h1>
 
   <div class="row">
     <% @flats.each do |flat| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.paris-appartements-services.com/img/photo/96/1.JPG');">
+      <% if flat.photo.present?  %>
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill %>')">
 
           <p> <%= flat.title %></p>
           <p> <%= link_to "GO", flat_path(flat.id) %> </p>
 
       </div>
 
-    </div>
-          <%end%>
+      <% else %>
 
-  </div>
-  </div>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url('https://www.blog-deco-maison.com/wp-content/uploads/2014/02/appartement-design-floride-1.jpg')">
+
+          <p> <%= flat.title %></p>
+          <p> <%= link_to "GO", flat_path(flat.id) %> </p>
+        </div>
+  <%end%>
+
+</div>
+<%end%>
+
+</div>
+</div>
 
 
 
