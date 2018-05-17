@@ -1,4 +1,3 @@
-require 'pg_search'
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
