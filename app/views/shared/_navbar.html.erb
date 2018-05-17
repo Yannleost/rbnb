@@ -6,11 +6,9 @@
   </a>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <a href="" class="navbar-wagon-item navbar-wagon-link">Accueil</a>
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Accueil</a>
-    <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a> -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Mon profil</a>
 
     <% if current_user%>
       <div class="navbar-wagon-item">
@@ -27,18 +25,21 @@
       <a href="/users/sign_in">Connection</a>
       <%= link_to 'Inscription',new_user_registration_path %>
     <% end %>
-  </div>
+          <%if (not user_signed_in?) %>
+          <a href="/"></a>
+          <div class="navbar-wagon-item">
+                <img src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+              </div>
+           <%elsif current_user.photo.present? %>
+            <div class="navbar-wagon-item">
+              <img src="<%= cl_image_path current_user.photo, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            </div>
+           <%else%>
+              <div class="navbar-wagon-item">
+                <img src="https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+              </div>
+          <%end%>
 
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
-      </ul>
-    </div>
   </div>
 </div>
 

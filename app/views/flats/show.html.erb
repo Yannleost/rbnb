@@ -1,3 +1,4 @@
+
 <h1>Voici l'appartement : <b> <%=@flat.title%></b>  </h1>
 <div
   id="map"
@@ -16,6 +17,8 @@
 <li> Date de début : <%= @flat.start_date %></li>
 <li> Date de fin : <%= @flat.end_date%></li>
 <li> Propriétaire : <%= @flat.owner.email%></li>
+<%= cl_image_tag(@flat.photo,
+      width: 400, height: 300, crop: :fill) %>
 </ul>
 
 
@@ -26,6 +29,22 @@
     <%= link_to("Reservation", new_flat_reservation_path(@flat))%>
   <% end %>
 </td>
+
+<button type="button" class="btn btn-outline-primary"><%= link_to("Edit information", edit_flat_path )%>
+</button>
+<br/>
+<br/>
+<button type="button" class="btn btn-outline-primary"><%= link_to("Delete flat", flat_path(@flat), method: :delete)%>
+</button>
+<br/>
+<br/>
+
+<button type="button" class="btn btn-outline-primary"><%= link_to("Reservation", new_flat_reservation_path(@flat))%></button>
+<br>
+<br>
+<button type="button" class="btn btn-outline-primary"><%= link_to("Back to index", flats_path)%></button>
+
+</div>
 
 <td>
   <% if policy(@flat).destroy? %>

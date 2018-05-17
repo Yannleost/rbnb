@@ -1,11 +1,18 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
+
 # ici on dit que la personne doit pouvoir etre authentifiée pour acceder à ces methodes.
 # sauf pour la page index qui est la page d'acceuiel
   def index
     @flats = Flat.all
     @flats = policy_scope(Flat)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR address ILIKE :query"
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
   end
 
   def new
@@ -14,7 +21,6 @@ class FlatsController < ApplicationController
   end
 
   def create
-    # raise
     @flat = Flat.new(flat_params)
     authorize @flat
     @flat.owner = current_user
@@ -64,7 +70,7 @@ class FlatsController < ApplicationController
   private
   # protection des parametres se sont les strongs params
   def flat_params
-    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date, :address)
+    params.require(:flat).permit(:title, :description, :price, :capacity, :start_date, :end_date, :address, :photo)
   end
 
 end

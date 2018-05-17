@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
+
+gem 'pg_search'
+
 gem 'geocoder'
-gem 'faker'
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'figaro'
