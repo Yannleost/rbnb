@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@flat) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title%>
@@ -30,6 +31,5 @@
 <%= f.submit class: 'btn btn-primary' %>
 
 <% end %>
-
 
  <%= link_to("Back to index", flats_path)%>

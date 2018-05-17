@@ -21,6 +21,15 @@
       width: 400, height: 300, crop: :fill) %>
 </ul>
 
+
+<td>
+  <% if policy(@flat).update? %>
+    <%= link_to 'Edit', edit_flat_path(@flat) %>
+  <% else %>
+    <%= link_to("Reservation", new_flat_reservation_path(@flat))%>
+  <% end %>
+</td>
+
 <button type="button" class="btn btn-outline-primary"><%= link_to("Edit information", edit_flat_path )%>
 </button>
 <br/>
@@ -37,3 +46,8 @@
 
 </div>
 
+<td>
+  <% if policy(@flat).destroy? %>
+    <%= link_to 'Delete', @flat, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</td>
