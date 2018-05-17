@@ -11,10 +11,11 @@
           <%= f.input :capacity %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
-          <%= f.submit class: 'btn btn-danger'%>
+          <%= f.submit class: 'btn btn-primary'%>
         <% end %>
       </div>
     </div>
-  </div>
-<%= link_to "Back to menu", flats_path %>
+    <div class = "backform"><%= link_to "Back to menu", flats_path, html_options = {class:"btn btn-primary"} %></div>
+</div>
+
 
