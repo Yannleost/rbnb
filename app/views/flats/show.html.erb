@@ -12,6 +12,7 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-xs-6">
     <h5> Ses caracteristiques sont : </h5>
     <ul>
       <li> Description :<%= @flat.description%></li>
@@ -22,6 +23,10 @@
       <li> Date de fin : <%= @flat.end_date%></li>
       <li> Propriétaire : <%= @flat.owner.email%></li>
     </ul>
+  </div>
+    <div class="col-xs-6">
+      <%= cl_image_tag(@flat.photo,
+      width: 400, height: 300, crop: :fill) %>
   </div>
   <div class = "row">
     <div class="col-xs-12 text-center">
@@ -42,36 +47,3 @@
     </div>
   </div>
 </div>
-
-<<<<<<< HEAD
-<h5> Ses caracterstiques sont : </h5>
-<ul>
-<li> Description :<%= @flat.description%></li>
-<li> Addresse : <%= @flat.address %>
-<li> Prix : <%= @flat.price %></li>
-<li> Capacité :<%= @flat.capacity%></li>
-<li> Date de début : <%= @flat.start_date %></li>
-<li> Date de fin : <%= @flat.end_date%></li>
-<li> Propriétaire : <%= @flat.owner.email%></li>
-<%= cl_image_tag(@flat.photo,
-      width: 400, height: 300, crop: :fill) %>
-</ul>
-
-
-<td>
-  <% if policy(@flat).update? %>
-    <%= link_to 'Edit', edit_flat_path(@flat) %>
-  <% else %>
-    <%= link_to("Reservation", new_flat_reservation_path(@flat))%>
-  <% end %>
-</td>
-
-
-<td>
-  <% if policy(@flat).destroy? %>
-    <%= link_to 'Delete', @flat, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</td>
-=======
-
->>>>>>> a5e5ff18ae3cf0b34470fac2073c6b16143ad7f6
