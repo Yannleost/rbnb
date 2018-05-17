@@ -1,9 +1,14 @@
+require 'pg_search'
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-# ici on dit que la personne doit pouvoir etre authentifiée pour acceder à ces methodes.
-# sauf pour la page index qui est la page d'acceuiel
+
   def index
-    @flats = Flat.all
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR address ILIKE :query"
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
   end
 
   def new
