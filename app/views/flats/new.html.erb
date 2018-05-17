@@ -1,11 +1,12 @@
 
 <div class="container">
-  <h1 style="text-align:center"> Let's create your flat ! </h1>
+  <h1 id="titreform"> Let's create your flat ! </h1>
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
         <%= simple_form_for(@flat) do |f| %>
           <%= f.input :title %>
           <%= f.input :address %>
+          <%= f.input :description %>
           <%= f.input :price %>
           <%= f.input :capacity %>
           <%= f.input :start_date %>
