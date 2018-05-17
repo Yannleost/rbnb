@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class="container">
   <h1 id="titreform"> Let's create your flat ! </h1>
     <div class="row">
@@ -11,11 +12,15 @@
           <%= f.input :capacity %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
           <%= f.submit class: 'btn btn-primary'%>
         <% end %>
+        <% if policy(Flat).create? %>
+          <%= link_to "New flat", new_flat_path %>
+        <% end %>
+
       </div>
     </div>
     <div class = "backform"><%= link_to "Back to menu", flats_path, html_options = {class:"btn btn-primary"} %></div>
 </div>
-
-

@@ -12,7 +12,7 @@ class Flat < ApplicationRecord
   validates :end_date, presence: true
   validates :start_date, inclusion: { in: (Date.today..Date.new(2119,2,3)) }
   validates :end_date, inclusion: { in: (Date.today..Date.new(2119,2,3)) }
-
+  mount_uploader :photo, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

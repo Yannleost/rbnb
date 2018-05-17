@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
+
+gem 'pg_search'
+
 gem 'geocoder'
-gem 'faker'
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'figaro'
@@ -12,7 +16,6 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 
-gem 'faker'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'
@@ -20,6 +23,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "pundit"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
