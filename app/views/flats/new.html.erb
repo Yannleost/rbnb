@@ -18,5 +18,9 @@
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
 
-<%= link_to "Back to menu", flats_path %>
+<% if policy(Flat).create? %>
+  <%= link_to "New flat", new_flat_path %>
+<% end %>
+
+
 

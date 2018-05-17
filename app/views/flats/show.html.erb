@@ -18,16 +18,17 @@
 <li> Propriétaire : <%= @flat.owner.email%></li>
 </ul>
 
- <%= link_to("Edit information", edit_flat_path, html_options = {class: "btn btn-primary"})%>
- <br />
- <br />
- <%= link_to("Delete flat", flat_path(@flat), method: :delete)%>
-<br />
-<br />
-<br />
 
-<%= link_to("Reservation", new_flat_reservation_path(@flat))%>
-<%= link_to("Back to index", flats_path)%>
+<td>
+  <% if policy(@flat).update? %>
+    <%= link_to 'Edit', edit_flat_path(@flat) %>
+  <% else %>
+    <%= link_to("Reservation", new_flat_reservation_path(@flat))%>
+  <% end %>
+</td>
 
-
-
+<td>
+  <% if policy(@flat).destroy? %>
+    <%= link_to 'Delete', @flat, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</td>
