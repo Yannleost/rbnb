@@ -1,8 +1,14 @@
 <div class="banner2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
   <div class="banner-content">
+    <%= form_tag flats_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Trouves un de nos espaces de co-working"%>
+    <% end %>
     <h1> LOCAWORK</h1>
     <p>Travailler chez des particuliers ! </p>
-     <%= link_to("See all flat", flats_path, html_options = {class: "btn btn-primary"}) %>
+     <%= link_to("Tout nos espaces ici!", flats_path, html_options = {class: "btn btn-primary"}) %>
 
   </div>
 </div>
