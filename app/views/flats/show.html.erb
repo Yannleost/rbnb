@@ -29,21 +29,6 @@
   <% end %>
 </td>
 
-<button type="button" class="btn btn-outline-primary"><%= link_to("Edit information", edit_flat_path )%>
-</button>
-<br/>
-<br/>
-<button type="button" class="btn btn-outline-primary"><%= link_to("Delete flat", flat_path(@flat), method: :delete)%>
-</button>
-<br/>
-<br/>
-
-<button type="button" class="btn btn-outline-primary"><%= link_to("Reservation", new_flat_reservation_path(@flat))%></button>
-<br>
-<br>
-<button type="button" class="btn btn-outline-primary"><%= link_to("Back to index", flats_path)%></button>
-
-</div>
 
 <td>
   <% if policy(@flat).destroy? %>
