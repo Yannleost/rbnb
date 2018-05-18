@@ -6,7 +6,7 @@
   background-position: center;
   color: white;
   position: relative;
-  margin: 20px;
+  margin: 3px;
 }
 .card-user {
   position: absolute;
@@ -48,13 +48,22 @@
 .card-link:hover {
   opacity: 0.1;
 }
-p{
-  margin:5px;
-  font-size:25px;
-}
+
 
 .card-headtitle {
   text-align: center;
   text-transform: capitalize;
+
+}
+.modif-title-card {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 40ch;
+    pointer-events:none;
+
+}
+
+.modif-title-card p:hover {
+  text-decoration: none
 
 }
