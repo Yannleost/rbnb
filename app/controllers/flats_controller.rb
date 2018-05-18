@@ -5,15 +5,25 @@ class FlatsController < ApplicationController
 # ici on dit que la personne doit pouvoir etre authentifiée pour acceder à ces methodes.
 # sauf pour la page index qui est la page d'acceuiel
   def index
-    @flats = Flat.all
-    @flats = policy_scope(Flat)
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR address ILIKE :query"
-      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @flats = Flat.all
-    end
-  end
+   @flats = Flat.all
+   @flats = policy_scope(Flat)
+
+   @flats_maps = Flat.where.not(latitude: nil, longitude: nil)
+
+   @markers = @flats.map do |flat|
+     {
+       lat: flat.latitude,
+       lng: flat.longitude
+
+     }
+   end
+   if params[:query].present?
+     sql_query = "title ILIKE :query OR address ILIKE :query"
+     @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+   else
+     @flats = Flat.all
+   end
+ end
 
   def new
     @flat = Flat.new
