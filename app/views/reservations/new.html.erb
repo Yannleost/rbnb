@@ -2,12 +2,15 @@
 
 <h1> Let's create your reservation </h1>
 
-<%= simple_form_for [@flat, @reservation] do |f| %>
 
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %> <br />
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %> <br />
+
+<%= simple_form_for [@flat, @reservation] do |f| %>
+    <%= f.error_notification %>
+
+  <!-- <label class="date required" for="reservation_end_date">End date <abbr title="required">*</abbr></label> -->
+  <input id="reservation_start_date" type="date" name="reservation[start_date]">
+  <input id="reservation_end_date" type="date" name="reservation[end_date]">
+
   <%= f.submit class: 'btn btn-primary'%>
 <% end %>
 

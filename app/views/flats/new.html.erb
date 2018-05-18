@@ -5,13 +5,14 @@
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
         <%= simple_form_for(@flat) do |f| %>
+          <%= f.error_notification %>
           <%= f.input :title %>
           <%= f.input :address %>
           <%= f.input :description %>
           <%= f.input :price %>
           <%= f.input :capacity %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <input id="flat_start_date" type="date" name="flat[start_date]">
+          <input id="flat_end_date" type="date" name="flat[end_date]">
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.submit class: 'btn btn-primary'%>
