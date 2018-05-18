@@ -15,7 +15,7 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
     url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill %>')">
 
-          <p> <%= flat.title %></p>
+          <div class="modif-title-card" maxlength="10"><p> <i><%= flat.title %></i></p></div>
           <p> <%= link_to "GO", flat_path(flat.id) %> </p>
 
       </div>
@@ -24,7 +24,7 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
       url('https://www.blog-deco-maison.com/wp-content/uploads/2014/02/appartement-design-floride-1.jpg')">
 
-          <p> <%= flat.title %></p>
+          <div class="modif-title-card" maxlength="10"><p><i> <%= flat.title %></i></p></div>
           <p> <%= link_to "GO", flat_path(flat.id) %> </p>
         </div>
   <%end%>
