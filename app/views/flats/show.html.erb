@@ -1,7 +1,6 @@
-
 <div class="container">
   <div class="row">
-    <h1>Voici l'appartement: <b><%=@flat.title%></b>  </h1>
+    <h1>Voici l'appartement : <b><%=@flat.title%></b>  </h1>
   </div>
   <div class="row">
     <div
@@ -13,37 +12,40 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-    <h5> Ses caracteristiques sont : </h5>
-    <ul>
-      <li> Description :<%= @flat.description%></li>
-      <li> Addresse : <%= @flat.address %></li>
-      <li> Prix : <%= @flat.price %></li>
-      <li> Capacité :<%= @flat.capacity%></li>
-      <li> Date de début : <%= @flat.start_date %></li>
-      <li> Date de fin : <%= @flat.end_date%></li>
-      <li> Propriétaire : <%= @flat.owner.email%></li>
-    </ul>
-  </div>
+      <h5> Ses caracteristiques sont : </h5>
+      <ul>
+        <li> Description : <%= @flat.description%></li>
+        <li> Addresse : <%= @flat.address %></li>
+        <li> Prix : <%= @flat.price %></li>
+        <li> Capacité : <%= @flat.capacity%></li>
+        <li> Date de début : <%= @flat.start_date %></li>
+        <li> Date de fin : <%= @flat.end_date%></li>
+        <li> Propriétaire : <%= @flat.owner.email%></li>
+      </ul>
+    </div>
     <div class="col-xs-6">
-      <%= cl_image_tag(@flat.photo,
-      width: 400, height: 300, crop: :fill) %>
+      <%= cl_image_tag(@flat.photo,width: 400, height: 300, crop: :fill) %>
+    </div>
   </div>
   <div class = "row">
     <div class="col-xs-12 text-center">
       <!-- class qui fait un text-align center de bootstrap -->
-      <div class="flat-buttons">
+      <div class="flat-buttons ">
         <% if policy(@flat).update? %>
-          <%= link_to 'Edit', edit_flat_path(@flat), class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_flat_path(@flat), class: "btn btn-primary list-inline" %>
         <% else %>
-          <%= link_to "Reservation", new_flat_reservation_path(@flat), class: "btn btn-primary"%>
+          <%= link_to "Reservation", new_flat_reservation_path(@flat), class: "btn btn-primary list-inline"%>
         <% end %>
         <% if policy(@flat).destroy? %>
-          <%= link_to 'supprimer', @flat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'supprimer', @flat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger list-inline" %>
         <% end %>
+        <%= link_to "Back to index", flats_path, class: "btn btn-primary list-inline"%>
       </div>
     </div>
+
     <div class="col-xs-12 text-center">
       <%= link_to "Retour à l'index", flats_path, class: "btn btn-primary"%>
     </div>
+
   </div>
 </div>
