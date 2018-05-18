@@ -13,6 +13,8 @@
     <% if current_user%>
       <div class="navbar-wagon-item">
         <div class="dropdown">
+          <%= link_to "Crée un appartement", new_flat_path, class: "btn btn-reverse btn-primary"%>
+
 
           <% if user_signed_in? && current_user.photo.present? %>
             <img src="<%= cl_image_path current_user.photo, height: 300, width: 400, crop: :fill %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
@@ -28,9 +30,10 @@
         </div>
       </div>
     <% else %>
+
       <%= link_to "Se connecter",new_user_session_path, class: "btn btn-reverse btn-primary"%>
       <%= link_to "S'inscrire",new_user_registration_path, class: "btn btn-reverse btn-primary"%>
-    <% end %>
+      <% end %>
 
 
 
