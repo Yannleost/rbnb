@@ -38,12 +38,12 @@
           <%= link_to "Reservation", new_flat_reservation_path(@flat), class: "btn btn-primary"%>
         <% end %>
         <% if policy(@flat).destroy? %>
-          <%= link_to 'Delete', @flat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'supprimer', @flat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>
     <div class="col-xs-12 text-center">
-      <%= link_to "Back to index", flats_path, class: "btn btn-primary"%>
+      <%= link_to "Retour à l'index", flats_path, class: "btn btn-primary"%>
     </div>
   </div>
 </div>
