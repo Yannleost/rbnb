@@ -1,9 +1,11 @@
 
 
 <div class="container">
-  <h1 id="titreform"> Let's create your flat ! </h1>
+
     <div class="row">
+
       <div class="col-xs-6 col-xs-offset-3">
+        <h1 id="titreform"> Let's create your flat ! </h1>
         <%= simple_form_for(@flat) do |f| %>
           <%= f.error_notification %>
           <%= f.input :title %>
@@ -21,5 +23,5 @@
 
       </div>
     </div>
-    <div class = "backform"><%= link_to "Back to menu", flats_path, html_options = {class:"btn btn-primary"} %></div>
+    <div class = "backform"><%= link_to "Retour au menu", flats_path, html_options = {class:"btn btn-primary"} %></div>
 </div>
