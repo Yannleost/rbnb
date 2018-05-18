@@ -7,6 +7,16 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
     @flats = policy_scope(Flat)
+
+    @flats_maps = Flat.where.not(latitude: nil, longitude: nil)
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+
+      }
+    end
     if params[:query].present?
       sql_query = "title ILIKE :query OR address ILIKE :query"
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
