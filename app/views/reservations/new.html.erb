@@ -2,7 +2,7 @@
 
 <h1> Let's create your reservation </h1>
 
-
+<div class= "container">
 
 <%= simple_form_for [@flat, @reservation] do |f| %>
     <%= f.error_notification %>
@@ -11,8 +11,9 @@
   <input id="reservation_start_date" type="date" name="reservation[start_date]">
   <input id="reservation_end_date" type="date" name="reservation[end_date]">
 
-  <%= f.submit class: 'btn btn-primary'%>
+  <%= f.submit class: 'btn btn-primary'%></div></br>
 <% end %>
 
 <%= link_to "index", flats_path %>
 
+</div>
