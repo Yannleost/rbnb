@@ -1,14 +1,12 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner" style="background-image: url('https://www.vivons-maison.com/sites/default/files/styles/740px/public/field/image/bel-appartement-paris-18-eme-vue.jpg?itok=g1wH70aF');">
   <div class="banner-content">
 
-    <h1>Bienvenue sur notre espace de co-working</h1>
-    <%= link_to("CREATE NEW FLAT", new_flat_path, html_options = {class:"btn btn-primary"}) %>
+    <h1>Bienvenue sur nos espace de co-working</h1>
+    <%= link_to("CREATE NEW FLAT", new_flat_path, html_options = {class:"btn btn-danger"}) %>
   </div>
 </div>
 
 <div class="container">
-<h1 class="card-headtitle">Voici tous nos espaces de Co-working </h1>
-
   <div class="row">
     <% @flats.each do |flat| %>
         <div class="col-xs-12 col-sm-4">
